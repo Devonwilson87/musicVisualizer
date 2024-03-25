@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.volume = 0.1; // Example volume level (30% of maximum volume)
 });
 
+
 function showNextStanza(index) {
     const lyricsElement = document.getElementById('lyrics');
     const stanzas = lyricsElement.querySelectorAll('p');
@@ -101,7 +102,7 @@ function displayResults(tracks) {
             
             li.textContent = track.name + ' - ' + track.artists[0].name;
             li.onclick = function() {
-
+                
                 var volumeSlider = document.getElementById('volume-slider');
                 volumeSlider.style.display = 'block';
 
@@ -136,9 +137,6 @@ function displayResults(tracks) {
                 npArtistElement.textContent = track.artists[0].name;
                 npSongElement.textContent = track.name;
 
-                
-
-                let currentStanzaIndex = 0; // Keep track of the currently displayed stanza index
 
                 function fetchLyrics() {
                     // Replace "artist" and "title" with your desired artist and song title
@@ -264,7 +262,6 @@ function saveVisualizer(event) {
     event.preventDefault(); // Prevent the default form submission
     const visualizerName = document.getElementById('save-vis-name').value;
     if (!visualizerName) {
-        alert('Please enter a name for your visualizer.');
         return;
     }
 
@@ -272,7 +269,7 @@ function saveVisualizer(event) {
     const selectedSong = document.getElementById('np-song').textContent;
     const selectedArtist = document.getElementById('np-artist').textContent;
     const selectedLyrics = document.getElementById('lyrics').innerHTML;
-    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src').value;
+    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src');
     const selectedAudioUrl = document.getElementById('audio').getAttribute('src');
 
     // Construct an object containing the data to save
@@ -335,7 +332,7 @@ document.querySelector('.saved-visualizers-list').addEventListener('click', func
             // Update the list of saved selections in the first modal
             updateSavedVisualizersList();
         } else {
-            alert('Failed to load visualizer. Please try again.');
+            return;
         }
     }
 });

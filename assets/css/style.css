@@ -21,14 +21,12 @@ input:hover {
 }
 
 #bg-fill {
-    background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGh6N2l2ajU4MG40YXFtMnlweHc4bGw0dmRxdjVxMGZtcWtlcDJrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13bGgH9VnEDsuA/giphy.gif);
+    background-image: url(https://cdn.pixabay.com/photo/2016/03/26/22/44/sky-1281662_1280.jpg);
     background-size: cover;
     background-position: center;
     min-width: 100vw;
     padding: 0px;
 }
-
-
 
 #list-bgs {
     display: flex;
@@ -50,16 +48,15 @@ input:hover {
     max-height: 100px;
     width: 100%;
     height: auto;
-    border-radius: 10px;
-    transition: .5s;
+    border-radius: 5px;
+    transition: .25s;
 }
 
 #list-bgs img:hover {
     filter: hue-rotate(180deg);
-    border: 5px solid cyan;
-    border-radius: 15px;
+    border: 2px solid cyan;
+    border-radius: 5px;
 }
-
 
 .np-container {
     position: fixed;
@@ -70,10 +67,18 @@ input:hover {
     max-width: 50vw;
 }
 
-.np-container h1, h2, h3 {
+.np-container h1, h2 {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
     padding: 0;
+}
+
+.np-container h1 {
+    font-size: 120%;
+}
+
+.np-container h2 {
+    font-size: 110%;
 }
 
 .np-container:hover {
@@ -94,27 +99,70 @@ input:hover {
 .search-container {
     display: flex; /* Use flexbox layout */
     justify-content: space-between;
-    align-content: center;
     width: 95vw; /* Optional: Adjust the width of the container */
     position: absolute;
     top: 1vh;
     left: 2.5vw;
-    right: 0;
+    right: 2.5vw;
     z-index: 2;
 }
 
 #search-songs {
     display: inline-block;
     max-width: 40vw;
+    min-width: 40vw;
     padding: 0;
     margin: 0;
+    left: 0;
+    transition: .25s;
 }
 
 #search-visuals {
     display: inline-block;
     max-width: 40vw;
+    min-width: 40vw;
     padding: 0;
     margin: 0;
+    right: 0;
+    transition: .25s;
+}
+
+#search-sgs {
+    margin-bottom: 2.5px;
+}
+
+#search-sgs,
+#search-bgs {
+    padding: 15px; /* Add some padding to give space around the text */
+    border: none; /* Remove the border */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    transition: background-color 0.3s; /* Add transition for smooth color change */
+    color: rgba(255, 255, 255, 0.8);
+    height: 10px;
+    font-size: 75%;
+    transition: .25s;
+}
+
+
+#search-sgs::placeholder,
+#search-bgs::placeholder {
+    color: rgba(255, 255, 255, 0.8); /* Set the placeholder text color */
+    justify-content: center;
+    text-shadow:rgb(94, 54, 51) 1px 1px 2px;
+}
+
+#search-sgs:hover,
+#search-bgs:hover {
+    background-color: rgba(0, 255, 149, 0.50); /* Change background color on focus */
+    outline: none; /* Remove default focus outline */
+    color: rgba(105, 7, 0, 0.74);
+}
+
+#search-sgs:focus,
+#search-bgs:focus {
+    background-color: rgba(0, 255, 149, 0.80); /* Change background color on focus */
+    outline: none; /* Remove default focus outline */
+    color: rgba(105, 7, 0, 0.74);
 }
 
 .song-results-list {
@@ -132,6 +180,7 @@ input:hover {
     padding: 5px;
     margin:5px;
     transition: .25s;
+    font-size: 50%;
 }
 
 .song-results-list li:hover {
@@ -146,8 +195,9 @@ input:hover {
 }
 
 .br-container {
+    display: grid;
     position: fixed;
-    justify-content: right;
+    justify-items: right;
     border: none;
     bottom: 5px;
     right: 15px;
@@ -155,30 +205,44 @@ input:hover {
 
 
 .uk-button {
+    display: flex;
+    align-items: center;
     border: none;
     border-radius: 10px;
     color:  rgba(255, 255, 255, 0.8);
-    font-size: 115%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    width: 100%;
+    font-size: 70%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 2px;
+    padding: 0 5px;
+    line-height: 15px;
+    transition: .25s;
 }
 
 .uk-button:hover {
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(0, 255, 149, 0.50);
     color: rgba(105, 7, 0, 0.74);
-    font-size: 115%;
 }
 
 #modal1,
 #modal2 {
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(223, 255, 242, 0.5);
     color: rgba(255, 255, 255);
     user-select: none;
+    max-height: 70%;
+    font-size: 70%;
+}
+
+#modal1 {
+    width: 70%;
+    font-size: 55%;
+}
+ 
+#modal2 {
+    width: auto;
 }
 
 .uk-modal-close-default {
@@ -193,6 +257,7 @@ input:hover {
     background-color: darkgray;
     border-radius: 5px;
     transition: .25s;
+    height: 20px;
 }
 
 #save-vis-name::placeholder {
@@ -210,9 +275,12 @@ input:hover {
     border-radius: 5px;
     background-color: rgba(0, 255, 149, 0.50);
     color: rgba(255, 255, 255, 0.8);
-    font-size: 115%;
-    margin-top: 10px;
+    margin-top: 5px;
     transition: .5s;
+    width: 100% !important;
+    justify-content: center;
+    font-size: 70%;
+    line-height: 15px;
 }
 
 #save-visualizers-btn:hover {
@@ -220,7 +288,10 @@ input:hover {
     border-radius: 10px;
     background-color: rgba(0, 255, 149, 0.80);
     color: rgba(105, 7, 0, 0.74);
-    font-size: 115%;
+}
+
+.saved-visualizers-list {
+    margin-top: 5px;
 }
 
 .saved-visualizers-list li:hover {
@@ -233,54 +304,156 @@ input:hover {
     transition: 0.5s;
 }
 
-
 #lyrics {
     white-space: pre-wrap;
     user-select: none;
-    line-height: 0.85;
+    line-height: 1;
     padding: 5px;
-}
-
-
-
-#toggle-animation:hover {
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(0, 255, 149, 0.25);
-    color: rgba(105, 7, 0, 0.84);
-    font-size: 105%;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    font-size: 10px;
+    transition: .25s;
 }
 
 #lyrics p {
+    color: rgba(255, 255, 255, 0.9);
     padding: 20px;
+    font-size: 100%;
+    text-shadow:rgb(94, 54, 51) 1px 1px 2px;
+    border-radius: 10px;
 }
 
-#search-sgs {
-    margin-bottom: 2.5px;
+#lyrics p:hover {
+    background-color: rgba(0, 255, 149, 0.50);
 }
 
-#search-sgs,
-#search-bgs {
-    padding: 15px; /* Add some padding to give space around the text */
-    border: none; /* Remove the border */
-    border-radius: 5vh; /* Add border-radius for rounded corners */
-    transition: background-color 0.3s; /* Add transition for smooth color change */
-    color: rgba(255, 255, 255, 0.8);
+.uk-modal-body {
+    padding: 20px 20px;
 }
 
-#search-sgs::placeholder,
-#search-bgs::placeholder {
-    color: rgba(255, 255, 255, 0.8); /* Set the placeholder text color */
+
+@media (min-width: 400px) {
+    #search-songs,
+    #search-visuals {
+        max-width: 35vw;
+        min-width: 35vw;
+    }
+
+    #search-sgs,
+    #search-bgs {
+        max-width: 31vw;
+        min-width: 31vw;
+        height: 35px;
+        font-size: 90%;
+        border-radius: 12px;
+    }
+
+    #list-bgs img {
+        border-radius: 10px;
+    }
+    
+    #list-bgs img:hover {
+        border: 3px solid cyan;
+        border-radius: 10px;
+    }
+
+    .np-container h1 {
+        font-size: 130%;
+    }
+    
+    .np-container h2 {
+        font-size: 120%;
+    }
+
+    .uk-button {
+        font-size: 80%;
+        line-height: 25px;
+        padding: 0 5px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        margin-right: 2px;
+    }
+
+    #save-visualizers-btn {
+        font-size: 90%;
+        line-height: 20px;
+    }
+
+    #lyrics {
+        font-size: 15px;
+    }
+
+    #modal1 {
+        font-size: 75%;
+    }
+
+    .uk-modal-body {
+        padding: 20px 20px;
+    }
+
+    .song-results-list li {
+        font-size: 60%;
+    }
+
 }
 
-#search-sgs:focus,
-#search-bgs:focus {
-    background-color: rgba(0, 255, 149, 0.50); /* Change background color on focus */
-    outline: none; /* Remove default focus outline */
-    color: rgba(105, 7, 0, 0.74);
-}
+ @media (min-width: 600px) {
+    #search-songs,
+    #search-visuals {
+        max-width: 25vw;
+        min-width: 25vw;
+    }
 
+
+    #search-sgs,
+    #search-bgs {
+        max-width: 25vw;
+        min-width: 25vw;
+        height: 40px;
+        font-size: 115%;
+        border-radius: 15px;
+    }
+
+    #list-bgs img {
+        border-radius: 15px;
+    }
+    
+    #list-bgs img:hover {
+        border: 4px solid cyan;
+        border-radius: 15px;
+    }
+
+    .np-container h1 {
+        font-size: 140%;
+    }
+    
+    .np-container h2 {
+        font-size: 130%;
+    }
+
+    .uk-button {
+        font-size: 90%;
+        line-height: 35px;
+        padding: 0 5px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        margin-right: 2px;
+    }
+
+    #save-visualizers-btn {
+        font-size: 100%;
+        line-height: 22px;
+    }
+
+
+    #lyrics {
+        font-size: 18px;
+    }
+
+    #modal1 {
+        font-size: 95%;
+    }
+
+    .uk-modal-body {
+        padding: 20px 20px;
+    }
+    
+}

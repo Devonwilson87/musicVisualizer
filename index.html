@@ -21,7 +21,6 @@
                 <!--search visuals input-->
                 <form id="search-visuals" class="uk-search uk-search-large" onsubmit="fetchBgs(); return false;">
                     <input id="search-bgs" class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search" autocomplete="off" spellcheck="false">
-                    <i class="fas fa-search search-icon" id="search-bgs-icon"></i>
                     <div id="results-bgs"></div>
                 </form>
             </div>    
@@ -29,7 +28,7 @@
 
             <!--populate img src through GIPHY API. adjust to fill viewport-->
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                <div id="toggle-animation" class="uk-position-center uk-panel"><span id="lyrics">To start building your visualizer<br>type in the search bars above.</span></div>
+                <div id="toggle-animation" class="uk-position-center uk-panel"><p id="lyrics">To start building your visualizer<br>type in the search bars above.</p></div>
                 <ul class="uk-grid" uk-height-viewport="offset-top: true; offset-bottom: 30">
                     <li id="bg-fill"></li>
             </div>
@@ -52,8 +51,7 @@
 
                 <!--saved visualizers modal-->
                 <div class="modals-container">
-
-                    <div class="saved-visualzers">
+                    <div class="saved-visualizers">
 
                         <a class="uk-button uk-button-default save-button" href="#modal-center1" uk-toggle>Load Visualizer</a>
 
@@ -72,7 +70,7 @@
 
 
                     <!--save a visualizer modal-->
-                    <div class="save-visualzers">
+                    <div class="save-visualizers">
                         <a class="uk-button uk-button-default save-button" href="#modal-center2" uk-toggle>Save Visualizer</a>
 
                         <div id="modal-center2" class="uk-flex-top" uk-modal>
